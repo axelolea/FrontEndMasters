@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Masters</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+    rel="stylesheet"/>
+</head>
+<body>
+    <div class="headerBrand">
+        <img src="https://btholt.github.io/complete-intro-to-web-dev-v3/images/coffee_masters_logo.png" alt="Logo Coffee Masters">
+        <p>Coffee Masters</p>
+    </div>
+    <div class="container">
+        <div class="orderDisplay">
+            <div class="items">
+                <!-- Items -->
+                <p>ITEMS</p>
+                <div class="itemSection">
+                    <div class="countItem">
+                        1x
+                    </div>
+                    <div class="item">
+                        <p class="nameItem">Cappucino</p>
+                        <ul class="ingredients">
+                            <li>Light Foam</li>
+                        </ul>
+                    </div>
+                    <p class="price">
+                        $6.00
+                    </p>
+                </div>
+                <div class="itemSection">
+                    <div class="countItem">
+                        1x
+                    </div>
+                    <div class="item">
+                        <p class="nameItem">Cappucino</p>
+                        <ul class="ingredients">
+                            <li>Almond Milk</li>
+                            <li>Double Espresso Shot</li>
+                        </ul>
+                    </div>
+                    <p class="price">
+                        $7.90
+                    </p>
+                </div>
+                <div class="itemSection">
+                    <div class="countItem">
+                        2x
+                    </div>
+                    <div class="item">
+                        <p class="nameItem">Croissant</p>
+                        <ul class="ingredients">
+                            <li>Butter</li>
+                        </ul>
+                    </div>
+                    <p class="price">
+                        $5.37
+                    </p>
+                </div>
+            </div>
+            <div class="dataOrder">
+                <div class="name">
+                    <!-- Name Input  -->
+                    <p>Name</p>
+                    <div class="inputLabel">
+                        <label for="">Name for order</label>
+                        <input type="name">
+                    </div>
+                </div>
+                <div class="payment">
+                    <!-- Data payment input  -->
+                    <p>Payment</p>
+                    <div class="inputLabel">
+                        <label for="">Card number</label>
+                        <input type="number">
+                    </div>
+                    <div class="inputLabel">
+                        <label for="">CCV number</label>
+                        <input type="number">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="totalDisplay">
+            <div>
+                <p>Subtotal:</p>
+                <p>$19.27</p>
+            </div>
+            <div>
+                <p>Tax:</p>
+                <p>$0.96</p>
+            </div>
+            <div>
+                <p>Total:</p>
+                <p>$20.23</p>
+            </div>
+        </div>
+        <button id="order">
+            Place order
+        </button>
+    </div>
+</body>
+</html>

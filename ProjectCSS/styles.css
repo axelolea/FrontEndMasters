@@ -1,0 +1,178 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --color-1: #43281c;
+    --color-2: #ddb892;
+    --color-3: #efefef;
+    --color-4: #ede0d4;
+    --color-5: #885a2d;
+    --color-6: #B08968;
+    --font-color-1: #424a37;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+}
+
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--color-3);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.headerBrand
+{
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    background-color: var(--color-1);
+}
+
+.headerBrand img
+{
+    height: 40%;
+}
+
+.headerBrand p
+{
+    font-weight: 700;
+    color: var(--color-3);
+    font-size: 17px;
+}
+
+.container
+{
+    display: flex;
+    padding: 20px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 92vw;
+}
+
+#order
+{
+    width: 100%;
+    background-color: var(--color-2);
+    border: none;
+    border-radius: 20px;
+    padding: 6px 0;
+}
+
+#order:hover
+{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition-duration: 200ms;
+}
+
+.orderDisplay
+{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    width: 100%;
+    position: relative;
+    gap: 10px;
+}
+
+.orderDisplay .items,
+.orderDisplay .name,
+.orderDisplay .payment
+{
+    background-color: var(--color-4);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px var(--color-shadow);
+    padding: 20px 15px;
+    color: var(--color-5);
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.itemSection
+{
+    display: grid;
+    padding: 10px 0;
+    grid-template-columns: 1fr 6fr 1fr;
+}
+
+.itemSection .nameItem,
+.itemSection .price,
+.itemSection .countItem
+{
+    font-weight: 600;
+    color: #000;
+}
+
+.itemSection li
+{
+    color: var(--color-6);
+    list-style: none;
+}
+
+.itemSection:not(.itemSection:last-child)
+{
+    border-bottom: 2px solid #43281c;
+}
+
+.dataOrder
+{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.inputLabel
+{
+    position: relative;
+    display: inline-block;
+    padding-top: 15px;
+}
+
+.inputLabel input
+{
+    border: 2px solid var(--color-1);
+    background-color: var(--color-4);
+    border-radius: 20px;
+    padding: 8px;
+    width: 100%;
+    border-color: var(--color-1);
+}
+
+.inputLabel label
+{
+    position: absolute;
+    color: var(--color-1);
+    font-size: 11px;
+    padding: 0 2px;
+    background-color: var(--color-4);
+    top: 7px;
+    left: 15px;
+}
+
+.totalDisplay
+{
+    position: relative;
+    display: flex;
+    max-width: 300px;
+    flex-direction: column;
+    width: 50%;
+}
+
+.totalDisplay div
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.totalDisplay div:last-child
+{
+    font-weight: 700;
+}
