@@ -53,7 +53,7 @@ body
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 40px;
     width: 92vw;
 }
 
@@ -68,8 +68,9 @@ body
 
 #order:hover
 {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     transition-duration: 200ms;
+    color: var(--color-2);
+    background-color: var(--color-1);
 }
 
 .orderDisplay
@@ -175,4 +176,16 @@ body
 .totalDisplay div:last-child
 {
     font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+    .orderDisplay
+    {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .dataOrder
+    {
+        gap: 20px;
+    }
 }
