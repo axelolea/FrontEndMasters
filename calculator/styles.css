@@ -1,0 +1,30 @@
+*
+{
+    font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+    font-size: 30px;
+}
+
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator
+{
+    display: grid;
+    width: 80vw;
+    height: 60vh;
+    font-weight: bold;
+    grid-template-areas:
+        "history history history history"
+        "input input input input"
+        "cancel back sqtr power"
+        "seven eight nine divide"
+        "four five six multiply"
+        "one two three subtraction"
+        "zero dot equals plus";
+}

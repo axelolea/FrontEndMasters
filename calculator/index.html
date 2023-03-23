@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="calculator">
+        <input id="history-input" style="grid-area: history">
+        <input id="number-input" style="grid-area: input">
+<!--         Top buttons -->
+        <button value="cancel" class="action" style="grid-area: cancel">C</button>
+        <button value="back" class="action" style="grid-area: back"><-</button>
+        <button value="√" class="operator" style="grid-area: sqtr">√</button>
+        <button value="²" class="operator" style="grid-area: power">x²</button>
+<!--         Middle top buttons -->
+        <button value="7" class="number" style="grid-area: seven">7</button>
+        <button value="8" class="number" style="grid-area: eight">8</button>
+        <button value="9" class="number" style="grid-area: nine">9</button>
+        <button value="/" class="operator" style="grid-area: divide">/</button>
+        <!--         Middle buttons -->
+        <button value="4" class="number" style="grid-area: four">4</button>
+        <button value="5" class="number" style="grid-area: five">5</button>
+        <button value="6" class="number" style="grid-area: six">6</button>
+        <button value="*" class="operator" style="grid-area: multiply">x</button>
+        <!--        Middle down buttons-->
+        <button value="1" class="number" style="grid-area: one">1</button>
+        <button value="2" class="number" style="grid-area: two">2</button>
+        <button value="3" class="number" style="grid-area: three">3</button>
+        <button value="-" class="operator" style="grid-area: subtraction">-</button>
+<!--        Down buttons-->
+        <button value="0" class="number" style="grid-area: zero">0</button>
+        <button value="." class="number" style="grid-area: dot">.</button>
+        <button value="equals" class="operator" style="grid-area: equals">=</button>
+        <button value="+" class="operator" style="grid-area: plus">+</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
