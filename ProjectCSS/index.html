@@ -14,7 +14,9 @@
         <img src="https://btholt.github.io/complete-intro-to-web-dev-v3/images/coffee_masters_logo.png" alt="Logo Coffee Masters">
         <p>Coffee Masters</p>
     </div>
-    <div class="container">
+    <main>
+        <img class="image" src="https://media.istockphoto.com/id/1038684362/es/foto/joven-mujer-tomando-caf%C3%A9-en-la-ventana.jpg?s=170667a&w=0&k=20&c=yz7Lk2vzXfN8FKl25sWni38r2UxI4M7ahwZ2HszI71Q=" alt="coffe">
+        <div class="container">
         <div class="orderDisplay">
             <div class="items">
                 <!-- Items -->
@@ -24,7 +26,7 @@
                         1x
                     </div>
                     <div class="item">
-                        <p class="nameItem">Cappucino</p>
+                        <p class="nameItem">Cappuccino</p>
                         <ul class="ingredients">
                             <li>Light Foam</li>
                         </ul>
@@ -38,7 +40,7 @@
                         1x
                     </div>
                     <div class="item">
-                        <p class="nameItem">Cappucino</p>
+                        <p class="nameItem">Cappuccino</p>
                         <ul class="ingredients">
                             <li>Almond Milk</li>
                             <li>Double Espresso Shot</li>
@@ -68,20 +70,20 @@
                     <!-- Name Input  -->
                     <p>Name</p>
                     <div class="inputLabel">
-                        <label for="">Name for order</label>
-                        <input type="name">
+                        <label for="name">Name for order</label>
+                        <input id="name" data-type="name">
                     </div>
                 </div>
                 <div class="payment">
                     <!-- Data payment input  -->
                     <p>Payment</p>
                     <div class="inputLabel">
-                        <label for="">Card number</label>
-                        <input type="number">
+                        <label for="card-number">Card number</label>
+                        <input id="card-number" type="number">
                     </div>
                     <div class="inputLabel ccv">
-                        <label for="">CCV number</label>
-                        <input type="number">
+                        <label for="ccv">CCV number</label>
+                        <input id="ccv" type="number">
                     </div>
                 </div>
             </div>
@@ -104,5 +106,6 @@
             Place order
         </button>
     </div>
+    </main>
 </body>
 </html>
