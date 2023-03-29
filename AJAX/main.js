@@ -6,6 +6,27 @@ const getActualRow = () => {
     )
 }
 
+// Create game table
+
+const table = document.getElementById('table')
+const createTable = () => {
+    table.innerHTML = ''
+    for (let i = 1; i <= 6; i++) {
+        const rowTable = document.createElement('div')
+        rowTable.classList.add('row')
+        rowTable.setAttribute('data-number', `${i}`)
+        for (let j = 0; j < 5; j++) {
+            const columnTable = document.createElement('div')
+            columnTable.classList.add('cell')
+            columnTable.setAttribute('data-position', `${j}`)
+            rowTable.append(columnTable)
+        }
+        table.append(rowTable)
+    }
+}
+
+createTable()
+
 class Game
 {
     #wordDay
@@ -35,7 +56,21 @@ class Game
     {
         return this.#wordDay === this.word
     }
-
+    inWordValidate(i){
+        const letter = this.word[i]
+        if (this.#wordDay.includes(letter)){
+            const sliceWord = this.word.slice(0,i+1)
+            let countA = 0
+            let countB = 0
+            for(let i = 0; i < this.#wordDay.length; i++)
+            {
+                if(this.#wordDay.at(i) === letter)countA++
+                if(sliceWord.at(i) === letter) countB++
+            }
+            if(countA === countB) return true
+        }
+        return false
+    }
     validateLetterWord(pos)
     {
         return this.word.at(pos) === this.#wordDay.at(pos)
@@ -44,16 +79,16 @@ class Game
 
 async function validateWord()
 {
-    game.loading = true
+    this.loading = true
 
-    const data = {
+    const body = {
         method: 'POST',
         body: JSON.stringify({ word: game.word })
     }
-    const resp = await fetch(validateWordUrl, data)
-    const json = await resp.json()
+    const resp = await fetch(validateWordUrl, body)
+    const data = await resp.json()
 
-    if (!json.validWord)
+    if (!data['validWord'])
     {
         alert()
         game.loading = false
@@ -76,16 +111,10 @@ async function validateWord()
     for(let i = 0; i < 5; i++)
     {
         const cell = actualRow.querySelector(`.cell[data-position="${i}"]`)
-        if(game.validateLetterWord(i))
-        {
-            cell.style.backgroundColor = 'var(--color-cell-3)'
-        }
-        else
-        {
-            cell.style.backgroundColor = 'var(--color-cell-2)'
-        }
+        if(game.validateLetterWord(i)) cell.style.backgroundColor = 'var(--color-cell-3)'
+        if(game.inWordValidate(i)) cell.style.backgroundColor = 'var(--color-cell-4)'
+        else cell.style.backgroundColor = 'var(--color-cell-2)'
     }
-
     if(game.rowPosition >= 6)
     {
         game.losser = true
@@ -122,7 +151,7 @@ function renderWord()
 const alphaRegex = /^[a-zA-Z]$/
 
 const game = new Game()
-
+const loading = document.querySelector('.loading')
 window.addEventListener('keydown', (e) => {
     if(game.winner || game.losser || game.loading) return
     if(alphaRegex.test(e.key))
@@ -140,6 +169,12 @@ window.addEventListener('keydown', (e) => {
     }
     if(e.key === 'Enter' && game.word.length === 5)
     {
+        loading.classList.remove('hidden')
         validateWord()
+            .then(
+                () => {
+                    loading.classList.add('hidden')
+                }
+            )
     }
 })

@@ -1,6 +1,8 @@
 *
 {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
     --gap-cell-rows: 10px;
     --color-bg: #B08968;
     --color-cell-1: #efefef;
@@ -16,20 +18,37 @@ body
     height: 100vh;
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
+    background-image: url('https://media.istockphoto.com/id/907854970/photo/grey-crumpled-paper-texture.jpg?b=1&s=170667a&w=0&k=20&c=m3q4xEgTL2QMJh9pi2JQdstdOM_rMo77CIfcRQsxZys=');
+    background-size: cover;
+    background-position: center;
 }
 
 body,
 .grid-container,
-.cell
+.cell,
+.wordsTable,
+.interface
 {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.wordsTable
+{
+    flex-direction: column;
+    gap: 15px;
+}
+
+.interface
+{
+    align-items: flex-start;
+}
+
 .grid-container
 {
-    position: absolute;
+    position: relative;
     flex-direction: column;
     width: 400px;
     background-color: var(--color-bg);
@@ -60,4 +79,53 @@ body,
 {
     transition: all 0s;
     background-color: var(--color-cell-5);
+}
+
+
+.loading
+{
+    background-color: rgba(255, 255, 255, 0.51);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loading p
+{
+    position: relative;
+    font-size: 2.5rem;
+}
+
+.loading.hidden
+{
+    visibility: hidden;
+    display: none;
+}
+
+.circle
+{
+    stroke: black;
+    animation-name: loadingCircle;
+    animation-duration: 800ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.84,.02,.5,.92);
+}
+
+
+@keyframes loadingCircle {
+    0%
+    {
+        transform: rotate(0);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
 }

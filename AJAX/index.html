@@ -2,55 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Music Lyrics</title>
+    <title>Word Masters</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="grid-container">
-        <div class="row" data-number="1">
-            <span class="cell" data-position="0"></span>
-            <span class="cell" data-position="1"></span>
-            <span class="cell" data-position="2"></span>
-            <span class="cell" data-position="3"></span>
-            <span class="cell" data-position="4"></span>
-        </div>
-        <div class="row" data-number="2">
-            <span class="cell" data-position="0"></span>
-            <span class="cell" data-position="1"></span>
-            <span class="cell" data-position="2"></span>
-            <span class="cell" data-position="3"></span>
-            <span class="cell" data-position="4"></span>
-        </div>
-        <div class="row" data-number="3">
-            <span class="cell" data-position="0"></span>
-            <span class="cell" data-position="1"></span>
-            <span class="cell" data-position="2"></span>
-            <span class="cell" data-position="3"></span>
-            <span class="cell" data-position="4"></span>
-        </div>
-        <div class="row" data-number="4">
-            <span class="cell" data-position="0"></span>
-            <span class="cell" data-position="1"></span>
-            <span class="cell" data-position="2"></span>
-            <span class="cell" data-position="3"></span>
-            <span class="cell" data-position="4"></span>
-        </div>
-        <div class="row" data-number="5">
-            <span class="cell" data-position="0"></span>
-            <span class="cell" data-position="1"></span>
-            <span class="cell" data-position="2"></span>
-            <span class="cell" data-position="3"></span>
-            <span class="cell" data-position="4"></span>
-        </div>
-        <div class="row" data-number="6">
-            <span class="cell" data-position="0"></span>
-            <span class="cell" data-position="1"></span>
-            <span class="cell" data-position="2"></span>
-            <span class="cell" data-position="3"></span>
-            <span class="cell" data-position="4"></span>
+    <div class="loading hidden">
+        <p>Loading</p>
+        <svg class="circle" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <circle cx="50" cy="50" fill="none" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138"></circle>
+        </svg>
+    </div>
+    <div class="wordsTable">
+        <h1>Word Masters</h1>
+        <div class="interface">
+            <div>Hola ---></div>
+            <div class="grid-container" id="table">
+                <!--            Set table in javascript file-->
+            </div>
+            <div><--- Hola</div>
         </div>
     </div>
     <script src="./main.js"></script>
