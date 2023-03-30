@@ -1,4 +1,5 @@
 const validateWordUrl = 'https://words.dev-apis.com/validate-word'
+const arrows = document.querySelectorAll('.arrow')
 
 const getActualRow = () => {
     return document.querySelector(
@@ -77,10 +78,21 @@ class Game
     }
 }
 
+function setPropertiesArrows()
+{
+    const boxElement = document.querySelector(`.row[data-number="${game.rowPosition}"] .cell`)
+    const tablePos = document.getElementById('table').getBoundingClientRect().top
+    const sizeBox = boxElement.clientHeight
+    const topBox = boxElement.getBoundingClientRect().top
+    arrows.forEach(el => {
+        el.style.height = `${sizeBox}px`
+        el.style.marginTop = `${topBox - tablePos}px`
+    })
+}
+
+
 async function validateWord()
 {
-    this.loading = true
-
     const body = {
         method: 'POST',
         body: JSON.stringify({ word: game.word })
@@ -91,11 +103,11 @@ async function validateWord()
     if (!data['validWord'])
     {
         alert()
-        game.loading = false
         return
     }
 
     const actualRow = getActualRow()
+    removeAnimationArrows()
 
     if(game.validateWord())
     {
@@ -104,7 +116,6 @@ async function validateWord()
             .forEach(el => {
                 el.style.backgroundColor = 'var(--color-cell-3)'
             })
-        game.loading = false
         return
     }
 
@@ -112,7 +123,7 @@ async function validateWord()
     {
         const cell = actualRow.querySelector(`.cell[data-position="${i}"]`)
         if(game.validateLetterWord(i)) cell.style.backgroundColor = 'var(--color-cell-3)'
-        if(game.inWordValidate(i)) cell.style.backgroundColor = 'var(--color-cell-4)'
+        else if(game.inWordValidate(i)) cell.style.backgroundColor = 'var(--color-cell-4)'
         else cell.style.backgroundColor = 'var(--color-cell-2)'
     }
     if(game.rowPosition >= 6)
@@ -122,7 +133,6 @@ async function validateWord()
 
     game.rowPosition++
     game.word = ''
-    game.loading = false
 }
 
 function alert()
@@ -148,10 +158,13 @@ function renderWord()
     }
 }
 
+
 const alphaRegex = /^[a-zA-Z]$/
 
 const game = new Game()
 const loading = document.querySelector('.loading')
+const removeAnimationArrows = () => arrows.forEach(el => el.classList.remove('enable'))
+setPropertiesArrows()
 window.addEventListener('keydown', (e) => {
     if(game.winner || game.losser || game.loading) return
     if(alphaRegex.test(e.key))
@@ -160,20 +173,27 @@ window.addEventListener('keydown', (e) => {
         {
             game.word += e.key
             renderWord()
+            if(game.word.length === 5){
+                arrows.forEach(el => el.classList.add('enable'))
+            }
         }
     }
     if(e.key === 'Backspace' && game.word.length > 0)
     {
         game.word = game.word.slice(0, game.word.length - 1)
+        removeAnimationArrows()
         renderWord()
     }
     if(e.key === 'Enter' && game.word.length === 5)
     {
+        game.loading = true
         loading.classList.remove('hidden')
         validateWord()
             .then(
                 () => {
+                    game.loading = false
                     loading.classList.add('hidden')
+                    setPropertiesArrows()
                 }
             )
     }
